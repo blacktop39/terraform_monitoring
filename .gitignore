@@ -1,0 +1,36 @@
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+*.tfvars
+!terraform.tfvars.example
+
+# Runtime directories
+prometheus/
+grafana-data/
+mariadb-data/
+kafka/
+
+# Log files
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class

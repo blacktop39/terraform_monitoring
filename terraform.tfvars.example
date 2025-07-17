@@ -1,0 +1,79 @@
+# 이 파일을 terraform.tfvars로 복사해서 사용하세요
+# Copy this file to terraform.tfvars and customize the values
+
+# 포트 설정 (기본값에서 변경이 필요한 경우)
+prometheus_port     = 9090
+grafana_port        = 3000
+kafka_port          = 9092
+zookeeper_port      = 2181
+mariadb_port        = 3306
+kafka_exporter_port = 8081
+
+# 서비스 버전 (필요시 변경)
+kafka_version    = "3.4.0"
+mariadb_version  = "11.3"
+python_version   = "3.9-slim"
+
+# 보안 설정 (반드시 변경하세요!)
+grafana_admin_password = "your_secure_grafana_password"
+mysql_root_password    = "your_secure_root_password"
+mysql_password         = "your_secure_user_password"
+mysql_database         = "monitoring_db"
+mysql_user            = "monitoring_user"
+
+# 리소스 설정
+kafka_memory_mb = 512  # 256-4096 범위
+
+# 외부 서비스 설정
+fastapi_host = "your-fastapi-host.com"
+fastapi_port = 8000
+
+# 환경 설정
+environment  = "dev"     # dev, staging, prod 중 선택
+enable_debug = true      # 개발환경에서는 true, 운영환경에서는 false
+
+# 태그 설정
+tags = {
+  project     = "monitoring"
+  environment = "dev"
+  managed_by  = "terraform"
+  owner       = "your-name"
+  team        = "your-team"
+  cost_center = "your-cost-center"
+}
+
+# 예시 설정들:
+
+# 개발 환경 예시
+# environment = "dev"
+# kafka_memory_mb = 256
+# enable_debug = true
+
+# 스테이징 환경 예시
+# environment = "staging"
+# kafka_memory_mb = 512
+# enable_debug = false
+
+# 프로덕션 환경 예시
+# environment = "prod"
+# kafka_memory_mb = 1024
+# enable_debug = false
+# grafana_admin_password = "very_secure_password_here"
+
+# 고성능 환경 예시
+# kafka_memory_mb = 2048
+# tags = {
+#   project     = "monitoring"
+#   environment = "prod"
+#   managed_by  = "terraform"
+#   owner       = "devops-team"
+#   performance = "high"
+# }
+
+# 로컬 개발 환경 예시
+# prometheus_port = 9090
+# grafana_port = 3000
+# kafka_port = 9092
+# environment = "local"
+# enable_debug = true
+# kafka_memory_mb = 256
